@@ -7,14 +7,17 @@
 data_download(cohort, datatype = "RNAseq")
 }
 \arguments{
-\item{cohort}{TCGA-CHOL}
+\item{cohort}{Character, e.g. TCGA-CHOL, please refer to GDC portal for proper abbreviations.}
 
-\item{datatype}{RNA-seq}
+\item{datatype}{Character, now only support RNA-seq, e.g. RNA-seq/RNAseq}
+}
+\value{
+List: including a DGEList object, and survival data
 }
 \description{
-Download TCGA data from API
+Download TCGA data from API, using TCGAbiolinks package
 }
 \examples{
-data_download("TCGA-CHOL", datatype="RNAseq")
+data_download("TCGA_CHOL", datatype="RNAseq")
 
 }
