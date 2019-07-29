@@ -65,19 +65,19 @@ plot_surv_gene <- function(symbol, anno = gene, count = exp, surv = survdata, pa
   surv$highlogi <- highlogi
   chitest <-round(chisq.test(highlogi,surv$tumor.stage)$p.value,4)
   # print(chitest)
-  diff <- survdiff(Surv(os.time,os.status)~highlogi,data = surv)
+  diff <- survdiff(Surv(.data$os.time,.data$os.status)~.data$highlogi,data = surv)
   pvalue <- round(1-pchisq(diff$chisq,df=1),3)
   # print(pvalue)
 
 
-  coxfit <- coxph(Surv(os.time,os.status)~highlogi,data = surv)
+  coxfit <- coxph(Surv(.data$os.time, .data$os.status)~.data$highlogi,data = surv)
   cox.zph.fit <-cox.zph(coxfit)
   coxpvalue <- round(cox.zph.fit$table[3],4)
   # ggcoxzph(cox.zph.fit)
   # print(colnames(surv1)[j])
   # print(paste("Cox PH Model P value",coxpvalue,sep = " "))
   # browser()
-  fitsurv <- survfit(Surv(os.time,os.status)~highlogi,data = surv)
+  fitsurv <- survfit(Surv(.data$os.time,.data$os.status)~.data$highlogi,data = surv)
   pvalue_fh <- round(surv_pvalue(fitsurv, method = "FH_p=1_q=1", data = surv)$pval,4)
   # print(paste("Fleming-Harrington P value",pvalue1,sep = " "))
   # pvalue2 = round(surv_pvalue(fit)$pval,4)

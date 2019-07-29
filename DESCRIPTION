@@ -15,10 +15,11 @@ Imports: TCGAbiolinks (>= 2.13.3),
     magrittr,
     tidyverse,
     edgeR, 
-    biomaRt (>= 2.40.3),
+    biomaRt (>= 2.41.4),
     SummarizedExperiment, 
     survminer, 
     survival,
     stats,
     utils,
-    ggplot2
+    ggplot2,
+    rlang

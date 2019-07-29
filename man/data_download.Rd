@@ -18,6 +18,6 @@ List: including a DGEList object, and survival data
 Download TCGA data from API, using TCGAbiolinks package
 }
 \examples{
-data_download("TCGA-CHOL", datatype="RNAseq")
+chol <- data_download("TCGA-CHOL", datatype="RNAseq")
 
 }
