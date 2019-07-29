@@ -6,7 +6,7 @@ useful scripts for TCGA data analysis
 
 ## data preparation
 ```
-data <- data_download("TCGA_CHOL", datatype = "RNA-seq)
+data <- data_download("TCGA_CHOL", datatype = "RNA-seq")
 ```
 
 ## plot survival plot for single gene
