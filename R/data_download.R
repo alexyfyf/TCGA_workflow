@@ -1,16 +1,16 @@
 #' @title Download TCGA data from API
 #'
-#' @description Download TCGA data from API
+#' @description Download TCGA data from API, using TCGAbiolinks package
 #'
-#' @param cohort TCGA-CHOL
+#' @param cohort Character, e.g. TCGA-CHOL, please refer to GDC portal for proper abbreviations.
 #'
-#' @param datatype RNA-seq
+#' @param datatype Character, now only support RNA-seq, e.g. RNA-seq/RNAseq
 #'
-#' @return NULL
+#' @return List: including a DGEList object, and survival data
 #'
-#' @examples data_download("TCGA-CHOL", datatype="RNAseq")
+#' @examples data_download("TCGA_CHOL", datatype="RNAseq")
 #'
-#' @export data_download
+#' @export
 
 ## data downloading and preprocessing
 
@@ -64,7 +64,7 @@ data_download <- function(cohort, datatype="RNAseq"){
   length(tumor.stage)
   tumor.stage = factor(tumor.stage)
 
-  # data into DGElist container
+  # data into DGEList container
 
   x= DGEList(counts = exp2,genes = data.frame(gene))
 
