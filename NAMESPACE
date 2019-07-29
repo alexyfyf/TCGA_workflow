@@ -1,0 +1,2 @@
+# exportPattern("^[[:alpha:]]+")
+export(plot_surv_gene)
