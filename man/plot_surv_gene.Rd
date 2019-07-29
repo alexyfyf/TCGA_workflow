@@ -21,3 +21,10 @@ plot_surv_gene(symbol, anno = gene, count = exp, surv = survdata,
 \description{
 Plot survival curve for single gene
 }
+\examples{
+chol <- data_download("TCGA_CHOL", datatype="RNA-seq")
+    x <- chol$x
+    survdata <- chol$surv
+    plot_surv_gene("TET2", x$genes, x$counts, survdata, "./")
+
+}

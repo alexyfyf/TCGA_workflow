@@ -8,7 +8,7 @@
 #'
 #' @return NULL
 #'
-#' @examples data_download("TCGA_CHOL", datatype="RNAseq)
+#' @examples data_download("TCGA_CHOL", datatype="RNAseq")
 #'
 #' @export data_download
 

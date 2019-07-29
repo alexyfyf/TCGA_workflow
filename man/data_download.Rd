@@ -14,3 +14,7 @@ data_download(cohort, datatype = "RNAseq")
 \description{
 Download TCGA data from API
 }
+\examples{
+data_download("TCGA_CHOL", datatype="RNAseq")
+
+}
