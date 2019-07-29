@@ -21,7 +21,3 @@ plot_surv_gene(symbol, anno = gene, count = exp, surv = survdata,
 \description{
 Plot survival curve for single gene
 }
-\examples{
-plot_surv_gene("TET2", x$genes, x$counts, survdata, "./")
-
-}
