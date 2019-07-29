@@ -2,13 +2,13 @@
 #'
 #' @description Download TCGA data from API
 #'
-#' @param cohort TCGA_CHOL
+#' @param cohort TCGA-CHOL
 #'
 #' @param datatype RNA-seq
 #'
 #' @return NULL
 #'
-#' @examples data_download("TCGA_CHOL", datatype="RNAseq")
+#' @examples data_download("TCGA-CHOL", datatype="RNAseq")
 #'
 #' @export data_download
 

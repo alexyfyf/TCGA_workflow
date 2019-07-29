@@ -7,7 +7,7 @@
 data_download(cohort, datatype = "RNAseq")
 }
 \arguments{
-\item{cohort}{TCGA_CHOL}
+\item{cohort}{TCGA-CHOL}
 
 \item{datatype}{RNA-seq}
 }
@@ -15,6 +15,6 @@ data_download(cohort, datatype = "RNAseq")
 Download TCGA data from API
 }
 \examples{
-data_download("TCGA_CHOL", datatype="RNAseq")
+data_download("TCGA-CHOL", datatype="RNAseq")
 
 }

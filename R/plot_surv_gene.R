@@ -2,19 +2,19 @@
 #'
 #' @description Plot survival curve for single gene
 #'
-#' @param symbol
+#' @param symbol gene symbol, character
 #'
-#' @param anno
+#' @param anno gene annotation file, output from TCGAbiolinks
 #'
-#' @param count
+#' @param count gene count matrix, output from TCGAbiolinks
 #'
-#' @param surv
+#' @param surv survival data
 #'
-#' @param path
+#' @param path path to plot
 #'
 #' @return NULL
 #'
-#' @examples chol <- data_download("TCGA_CHOL", datatype="RNA-seq")
+#' @examples chol <- data_download("TCGA-CHOL", datatype="RNA-seq")
 #'     x <- chol$x
 #'     survdata <- chol$surv
 #'     plot_surv_gene("TET2", x$genes, x$counts, survdata, "./")
