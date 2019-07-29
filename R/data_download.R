@@ -8,7 +8,7 @@
 #'
 #' @return List: including a DGEList object, and survival data
 #'
-#' @examples data_download("TCGA_CHOL", datatype="RNAseq")
+#' @examples data_download("TCGA-CHOL", datatype="RNAseq")
 #'
 #' @export
 
