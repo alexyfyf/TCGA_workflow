@@ -48,6 +48,8 @@ data_download <- function(cohort, datatype="RNAseq"){
   GDCdownload(query, method = "api", files.per.chunk = 10)
   data <- GDCprepare(query)
 
+  # browser()
+
   ## get expression matrix and clinical data frame
 
   exp <- assay(data)
@@ -77,7 +79,7 @@ data_download <- function(cohort, datatype="RNAseq"){
   tumor.stage <- gsub(".*ii.*",2,tumor.stage,perl = T)
   tumor.stage <- gsub(".*i.*",1,tumor.stage,perl = T)
   tumor.stage <- gsub("not reported",0,tumor.stage,perl = T)
-  length(tumor.stage)
+  # length(tumor.stage)
   tumor.stage = factor(tumor.stage)
 
   # data into DGEList container
