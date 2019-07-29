@@ -8,15 +8,18 @@ plot_surv_gene(symbol, anno = gene, count = exp, surv = survdata,
   path)
 }
 \arguments{
-\item{symbol}{gene symbol, character}
+\item{symbol}{Character, gene symbol, character}
 
-\item{anno}{gene annotation file, output from TCGAbiolinks}
+\item{anno}{Dataframe, gene annotation file, output from TCGAbiolinks}
 
-\item{count}{gene count matrix, output from TCGAbiolinks}
+\item{count}{Matrix, gene count matrix, output from TCGAbiolinks}
 
-\item{surv}{survival data}
+\item{surv}{Dataframe, survival data}
 
-\item{path}{path to plot}
+\item{path}{Character, path to plot}
+}
+\value{
+summary statistics and plot
 }
 \description{
 Plot survival curve for single gene

@@ -10,15 +10,31 @@
 #'
 #' @examples data_download("TCGA-CHOL", datatype="RNAseq")
 #'
+#' @import TCGAbiolinks
+#'
+#' @import tidyverse
+#'
+#' @import magrittr
+#'
+#' @importFrom rlang .data
+#'
+#' @importFrom SummarizedExperiment assay
+#'
+#' @importFrom SummarizedExperiment colData
+#'
+#' @importFrom SummarizedExperiment rowData
+#'
+#' @import edgeR
+#'
 #' @export
 
 ## data downloading and preprocessing
 
 data_download <- function(cohort, datatype="RNAseq"){
-  library(TCGAbiolinks)
-  library(tidyverse)
-  library(SummarizedExperiment)
-  library(edgeR)
+  # library(TCGAbiolinks)
+  # library(tidyverse)
+  # library(SummarizedExperiment)
+  # library(edgeR)
 
   # download TCGA data
   # View(getGDCprojects())
@@ -69,7 +85,7 @@ data_download <- function(cohort, datatype="RNAseq"){
   x= DGEList(counts = exp2,genes = data.frame(gene))
 
   survdata = data.frame(clinical2$barcode,clinical2$shortLetterCode,os.status,os.time,tumor.stage)
-  survdata = survdata %>% filter(clinical2.shortLetterCode!="NT")
+  survdata = survdata %>% filter(.data$clinical2.shortLetterCode != "NT")
   survdata$os.status = survdata$os.status %in% c("Dead","dead")
 
   return(list(x=x, surv=survdata))

@@ -2,17 +2,35 @@
 #'
 #' @description Plot survival curve for single gene
 #'
-#' @param symbol gene symbol, character
+#' @param symbol Character, gene symbol, character
 #'
-#' @param anno gene annotation file, output from TCGAbiolinks
+#' @param anno Dataframe, gene annotation file, output from TCGAbiolinks
 #'
-#' @param count gene count matrix, output from TCGAbiolinks
+#' @param count Matrix, gene count matrix, output from TCGAbiolinks
 #'
-#' @param surv survival data
+#' @param surv Dataframe, survival data
 #'
-#' @param path path to plot
+#' @param path Character, path to plot
 #'
-#' @return NULL
+#' @import tidyverse
+#'
+#' @import survival
+#'
+#' @import survminer
+#'
+#' @import edgeR
+#'
+#' @import stats
+#'
+#' @import magrittr
+#'
+#' @importFrom rlang .data
+#'
+#' @importFrom ggplot2 ggsave
+#'
+#' @import utils
+#'
+#' @return summary statistics and plot
 #'
 #' @examples
 #' chol <- data_download("TCGA-CHOL", datatype="RNA-seq")
@@ -31,10 +49,10 @@
 
 
 plot_surv_gene <- function(symbol, anno = gene, count = exp, surv = survdata, path){
-  library(tidyverse)
-  library(survminer)
-  library(survival)
-  library(edgeR)
+  # library(tidyverse)
+  # library(survminer)
+  # library(survival)
+  # library(edgeR)
 
   gene_id <- anno$ensembl_gene_id[match(symbol, anno$external_gene_name)]
 
@@ -47,7 +65,7 @@ plot_surv_gene <- function(symbol, anno = gene, count = exp, surv = survdata, pa
   surv$highlogi <- highlogi
   chitest <-round(chisq.test(highlogi,surv$tumor.stage)$p.value,4)
   # print(chitest)
-  diff = survdiff(Surv(os.time,os.status)~highlogi,data = surv)
+  diff <- survdiff(Surv(os.time,os.status)~highlogi,data = surv)
   pvalue <- round(1-pchisq(diff$chisq,df=1),3)
   # print(pvalue)
 

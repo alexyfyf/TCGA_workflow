@@ -12,9 +12,13 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports: TCGAbiolinks (>= 2.13.3), 
-    tidyverse, 
+    magrittr,
+    tidyverse,
     edgeR, 
     biomaRt (>= 2.40.3),
     SummarizedExperiment, 
     survminer, 
-    survival
+    survival,
+    stats,
+    utils,
+    ggplot2
