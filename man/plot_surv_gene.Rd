@@ -8,23 +8,23 @@ plot_surv_gene(symbol, anno = gene, count = exp, surv = survdata,
   path)
 }
 \arguments{
-\item{symbol}{}
+\item{symbol}{gene symbol, character}
 
-\item{anno}{}
+\item{anno}{gene annotation file, output from TCGAbiolinks}
 
-\item{count}{}
+\item{count}{gene count matrix, output from TCGAbiolinks}
 
-\item{surv}{}
+\item{surv}{survival data}
 
-\item{path}{}
+\item{path}{path to plot}
 }
 \description{
 Plot survival curve for single gene
 }
 \examples{
-chol <- data_download("TCGA_CHOL", datatype="RNA-seq")
-    x <- chol$x
-    survdata <- chol$surv
-    plot_surv_gene("TET2", x$genes, x$counts, survdata, "./")
+chol <- data_download("TCGA-CHOL", datatype="RNA-seq")
+x <- chol$x
+survdata <- chol$surv
+plot_surv_gene("TET2", x$genes, x$counts, survdata, "./")
 
 }

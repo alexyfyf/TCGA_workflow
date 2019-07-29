@@ -14,10 +14,11 @@
 #'
 #' @return NULL
 #'
-#' @examples chol <- data_download("TCGA-CHOL", datatype="RNA-seq")
-#'     x <- chol$x
-#'     survdata <- chol$surv
-#'     plot_surv_gene("TET2", x$genes, x$counts, survdata, "./")
+#' @examples
+#' chol <- data_download("TCGA-CHOL", datatype="RNA-seq")
+#' x <- chol$x
+#' survdata <- chol$surv
+#' plot_surv_gene("TET2", x$genes, x$counts, survdata, "./")
 #'
 #' @export plot_surv_gene
 
