@@ -6,7 +6,6 @@ Author: Feng Yan
 Maintainer: Feng Yan <alexyfyf@163.com>
 Description: Download and preprocess TCGA RNA-seq data
     Survival plot for single gene or gene set
-    Use four spaces when indenting paragraphs within the Description.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
