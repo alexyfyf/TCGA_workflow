@@ -4,8 +4,7 @@
 \alias{plot_surv_gene}
 \title{Plot survival curve for single gene}
 \usage{
-plot_surv_gene(symbol, anno = gene, count = exp, surv = survdata,
-  path)
+plot_surv_gene(symbol, anno = gene, count = exp, surv = survdata, path)
 }
 \arguments{
 \item{symbol}{Character, gene symbol, character}
