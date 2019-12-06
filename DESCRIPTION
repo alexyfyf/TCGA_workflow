@@ -4,8 +4,8 @@ Title: Useful functions for TCGA (RNA-seq) data analysis
 Version: 0.1.0
 Author: Feng Yan 
 Maintainer: Feng Yan <alexyfyf@163.com>
-Description: Download and preprocess TCGA RNA-seq data
-    Survival plot for single gene or gene set
+Description: Download and preprocess TCGA RNA-seq data.
+    Survival plot for single gene or gene set.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
