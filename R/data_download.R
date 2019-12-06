@@ -86,10 +86,18 @@ data_download <- function(cohort, datatype="RNAseq"){
 
   x= DGEList(counts = exp2,genes = data.frame(gene))
   # browser()
-  survdata = data.frame(clinical2$barcode,clinical2$shortLetterCode,os.status,os.time,tumor.stage)
-
-  survdata = survdata %>% filter(.data$clinical2.shortLetterCode != "NT")
-  survdata$os.status = survdata$os.status %in% c("Dead","dead")
+  # survdata = data.frame(clinical2$barcode,clinical2$shortLetterCode,os.status,os.time,tumor.stage)
+  #
+  # survdata = survdata %>% filter(.data$clinical2.shortLetterCode != "NT")
+  # survdata$os.status = survdata$os.status %in% c("Dead","dead")
+  survdata <-
+    clinical2 %>% data.frame() %>% select(barcode, shortLetterCode) %>%
+    mutate(
+      os.status = os.status %in% c("Dead", "dead"),
+      os.time = os.time,
+      tumor.stage = tumor.stage
+    ) %>%
+    filter(shortLetterCode != "NT")
 
   return(list(x=x, surv=survdata))
 }
