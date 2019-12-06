@@ -44,7 +44,7 @@
 ## symbol: character of gene symbols
 ## anno: annotation of genes, with these columns: ensembl_gene_id, external_gene_name
 ## count: RNA-seq raw count matrix, must be integers, rownames is gene id or symbol, colnames is patient id
-## surv: survival data with below columns:  clinical2.barcode clinical2.shortLetterCode os.status os.time tumor.stage
+## surv: survival data with below columns:  barcode shortLetterCode os.status os.time tumor.stage
 ## path: the directory to save figures and summary
 
 
@@ -58,10 +58,10 @@ plot_surv_gene <- function(symbol, anno = gene, count = exp, surv = survdata, pa
 
   lcpm.sub <-  cpm(count, log=T)[gene_id,]
 
-  idx <- match(surv$clinical2.barcode, names(lcpm.sub))
+  idx <- match(surv$barcode, names(lcpm.sub))
   median <-  median(lcpm.sub[idx])
   highlogi <- lcpm.sub[idx] > median
-  stopifnot(all.equal(as.character(surv$clinical2.barcode), names(lcpm.sub)[idx]))
+  stopifnot(all.equal(as.character(surv$barcode), names(lcpm.sub)[idx]))
   surv$highlogi <- highlogi
   chitest <-round(chisq.test(highlogi,surv$tumor.stage)$p.value,4)
   # print(chitest)
