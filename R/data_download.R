@@ -92,7 +92,7 @@ data_download <- function(cohort, datatype="RNAseq"){
   # survdata$os.status = survdata$os.status %in% c("Dead","dead")
   survdata <-
     clinical2 %>% data.frame() %>% dplyr::select(barcode, shortLetterCode) %>%
-    mutate(
+    dplyr::mutate(
       os.status = os.status %in% c("Dead", "dead"),
       os.time = os.time,
       tumor.stage = tumor.stage
