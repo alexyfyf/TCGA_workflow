@@ -91,7 +91,7 @@ data_download <- function(cohort, datatype="RNAseq"){
   # survdata = survdata %>% filter(.data$clinical2.shortLetterCode != "NT")
   # survdata$os.status = survdata$os.status %in% c("Dead","dead")
   survdata <-
-    clinical2 %>% data.frame() %>% select(barcode, shortLetterCode) %>%
+    clinical2 %>% data.frame() %>% dplyr::select(barcode, shortLetterCode) %>%
     mutate(
       os.status = os.status %in% c("Dead", "dead"),
       os.time = os.time,
