@@ -16,6 +16,8 @@
 #'
 #' @import magrittr
 #'
+#' @import dplyr
+#'
 #' @importFrom rlang .data
 #'
 #' @importFrom SummarizedExperiment assay
@@ -91,13 +93,13 @@ data_download <- function(cohort, datatype="RNAseq"){
   # survdata = survdata %>% filter(.data$clinical2.shortLetterCode != "NT")
   # survdata$os.status = survdata$os.status %in% c("Dead","dead")
   survdata <-
-    clinical2 %>% data.frame() %>% select(barcode, shortLetterCode) %>%
-    mutate(
+    clinical2 %>% data.frame() %>% dplyr::select(.data$barcode, .data$shortLetterCode) %>%
+    dplyr::mutate(
       os.status = os.status %in% c("Dead", "dead"),
       os.time = os.time,
       tumor.stage = tumor.stage
     ) %>%
-    filter(shortLetterCode != "NT")
+    dplyr::filter(.data$shortLetterCode != "NT")
 
   return(list(x=x, surv=survdata))
 }

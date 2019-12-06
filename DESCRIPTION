@@ -21,4 +21,5 @@ Imports: TCGAbiolinks (>= 2.13.3),
     stats,
     utils,
     ggplot2,
-    rlang
+    rlang,
+    dplyr

@@ -35,8 +35,8 @@
 #' @examples
 #' chol <- data_download("TCGA-CHOL", datatype="RNA-seq")
 #' x <- chol$x
-#' survdata <- chol$surv
-#' plot_surv_gene("TET2", x$genes, x$counts, survdata, "./")
+#' survinfo <- chol$surv
+#' plot_surv_gene("TET2", x$genes, x$counts, survinfo, "./")
 #'
 #' @export plot_surv_gene
 
@@ -48,7 +48,7 @@
 ## path: the directory to save figures and summary
 
 
-plot_surv_gene <- function(symbol, anno = gene, count = exp, surv = survdata, path){
+plot_surv_gene <- function(symbol, anno, count, surv, path){
   # library(tidyverse)
   # library(survminer)
   # library(survival)
@@ -65,14 +65,14 @@ plot_surv_gene <- function(symbol, anno = gene, count = exp, surv = survdata, pa
   surv$highlogi <- highlogi
   chitest <-round(chisq.test(highlogi,surv$tumor.stage)$p.value,4)
   # print(chitest)
-  diff <- survdiff(Surv(os.time,os.status)~highlogi,data = surv)
   # diff <- survdiff(Surv(.data$os.time,.data$os.status)~.data$highlogi,data = surv)
+  diff <- survdiff(Surv(surv$os.time,surv$os.status)~surv$highlogi,data = surv)
   pvalue <- round(1-pchisq(diff$chisq,df=1),3)
   # print(pvalue)
 
 
   # coxfit <- coxph(Surv(.data$os.time, .data$os.status)~.data$highlogi,data = surv)
-  coxfit <- coxph(Surv(os.time, os.status)~highlogi,data = surv)
+  coxfit <- coxph(Surv(surv$os.time, surv$os.status)~surv$highlogi,data = surv)
   cox.zph.fit <-cox.zph(coxfit)
   coxpvalue <- round(cox.zph.fit$table[3],4)
   # ggcoxzph(cox.zph.fit)
@@ -80,7 +80,7 @@ plot_surv_gene <- function(symbol, anno = gene, count = exp, surv = survdata, pa
   # print(paste("Cox PH Model P value",coxpvalue,sep = " "))
   # browser()
   # fitsurv <- survfit(Surv(.data$os.time,.data$os.status)~.data$highlogi,data = surv)
-  fitsurv <- survfit(Surv(os.time,os.status)~highlogi,data = surv)
+  fitsurv <- surv_fit(Surv(surv$os.time,surv$os.status)~surv$highlogi,data = surv)
   pvalue_fh <- round(surv_pvalue(fitsurv, method = "FH_p=1_q=1", data = surv)$pval,4)
   # print(paste("Fleming-Harrington P value",pvalue1,sep = " "))
   # pvalue2 = round(surv_pvalue(fit)$pval,4)
@@ -109,3 +109,4 @@ plot_surv_gene <- function(symbol, anno = gene, count = exp, surv = survdata, pa
   write.csv(surv.summary,paste(path, "survival-summary.csv", sep = "" ))
   return(surv.summary)
 }
+

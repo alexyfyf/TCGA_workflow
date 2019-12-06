@@ -3,6 +3,7 @@
 export(data_download)
 export(plot_surv_gene)
 import(TCGAbiolinks)
+import(dplyr)
 import(edgeR)
 import(magrittr)
 import(stats)
