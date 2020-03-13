@@ -2,7 +2,7 @@
 useful scripts for TCGA data analysis
 
 ## Installation
-```devtools::github("alexyfyf/TCGA_workflow")```
+```devtools::github("alexyfyf/TCGAworkflow")```
 
 ## data preparation
 ```
