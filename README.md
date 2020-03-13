@@ -1,4 +1,4 @@
-# TCGA_workflow
+# TCGAworkflow
 useful scripts for TCGA data analysis
 
 ## Installation
